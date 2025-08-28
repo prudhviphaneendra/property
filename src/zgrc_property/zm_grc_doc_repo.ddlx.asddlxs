@@ -1,0 +1,222 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'Filename'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'Mimetype'
+annotate view ZC_GRC_DOC_REPO with
+{
+
+
+  @UI.facet: [ {
+    label: 'General Information', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  } ]
+
+  @EndUserText.label: 'DocUuid'
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'DocUuid'
+  } ]
+  @UI.lineItem: [ {
+    position: 10 ,  
+//    cssDefault.width: '40em',    
+    label: 'DocUuid'
+  } ]
+//  @UI.selectionField: [ {
+//    position: 10 
+//  } ]
+//  @UI.hidden: true
+  DocUuid;
+  
+  @EndUserText.label: 'DocType'
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'DocType'
+  } ]
+//  @UI.lineItem: [ {
+//    position: 20 , 
+//    label: 'DocType'
+//  } ]
+//  @UI.selectionField: [ {
+//    position: 20 
+//  } ]
+//  @UI.hidden: true  
+  DocType;
+  
+  @EndUserText.label: 'ExternalDocNum'
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'ExternalDocNum'
+  } ]
+//  @UI.lineItem: [ {
+//    position: 30 , 
+//    label: 'ExternalDocNum'
+//  } ]
+//  @UI.selectionField: [ {
+//    position: 30 
+//  } ]
+//  @UI.hidden: true  
+  ExternalDocNum;
+  
+  @EndUserText.label: 'Counter'
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'Counter'
+  } ]
+  @UI.lineItem: [ {
+    position: 40 , 
+    label: 'Counter'
+  } ]
+//  @UI.selectionField: [ {
+//    position: 40 
+//  } ]  
+  Counter;
+  
+  @EndUserText.label: 'Attachment'
+  @UI.identification: [ {
+    position: 50 , 
+    label: 'Attachment'
+  } ]
+  @UI.lineItem: [ {
+    position: 50 , 
+    label: 'Attachment'
+  } ]
+//  @UI.selectionField: [ {
+//    position: 50 
+//  } ]
+  Attachment;
+  
+  @EndUserText.label: 'Mimetype'
+  @UI.identification: [ {
+    position: 60 , 
+    label: 'Mimetype'
+  } ]
+  @UI.lineItem: [ {
+    position: 60 , 
+    label: 'Mimetype'
+  } ]
+//  @UI.selectionField: [ {
+//    position: 60 
+//  } ]
+//  @UI.hidden: true  
+  Mimetype;
+  
+  @EndUserText.label: 'Filename'
+  @UI.identification: [ {
+    position: 70 , 
+    label: 'Upload File',
+    type: #FOR_ACTION, 
+    dataAction: 'uploadFile'    
+  } ]
+  @UI.lineItem: [ {
+    position: 70 , 
+//    cssDefault.width: '70',
+    label: 'Filename'
+  } ]
+//  @UI.selectionField: [ {
+//    position: 70 
+//  } ]  
+  Filename;
+  
+  
+    @EndUserText.label: 'Vattachment'
+  @UI.identification: [ {
+    position: 75 , 
+    label: 'Virtual File'
+  } ]
+  vattachment;
+  
+  @EndUserText.label: 'FolderId'
+  @UI.identification: [ {
+    position: 80 , 
+    label: 'Download File',
+    type: #FOR_ACTION, 
+    dataAction: 'downloadFile'    
+  } ]  
+//  @UI.identification: [ {
+//    position: 80 , 
+//    label: 'FolderId'
+//  } ]
+  @UI.lineItem: [ {
+    position: 80 , 
+    label: 'FolderId'
+  } ]
+//  @UI.selectionField: [ {
+//    position: 80 
+//  } ]
+//  @UI.hidden: true
+  FolderId;
+  
+  @EndUserText.label: 'FileDocid'
+//  @UI.identification: [ {
+//    position: 90 , 
+//    label: 'FileDocid'
+//  } ]
+  @UI.lineItem: [ {
+    position: 90 , 
+    label: 'FileDocid'
+  } ]
+//  @UI.selectionField: [ {
+//    position: 90 
+//  } ]
+//  @UI.hidden: true  
+  FileDocid;
+  
+  @UI.identification: [ {
+    position: 100 
+  } ]
+  @UI.lineItem: [ {
+    position: 100 
+  } ]
+//  @UI.selectionField: [ {
+//    position: 100 
+//  } ]
+  LocalCreatedBy;
+  
+  @UI.identification: [ {
+    position: 110 
+  } ]
+  @UI.lineItem: [ {
+    position: 110 
+  } ]
+//  @UI.selectionField: [ {
+//    position: 110 
+//  } ]
+  LocalCreatedAt;
+  
+  @UI.identification: [ {
+    position: 120 
+  } ]
+  @UI.lineItem: [ {
+    position: 120 
+  } ]
+//  @UI.selectionField: [ {
+//    position: 120 
+//  } ]
+  LocalLastChangedBy;
+  
+  @UI.identification: [ {
+    position: 130 
+  } ]
+  @UI.lineItem: [ {
+    position: 130 
+  } ]
+//  @UI.selectionField: [ {
+//    position: 130 
+//  } ]
+  LocalLastChangedAt;
+  
+  @UI.identification: [ {
+    position: 140 
+  } ]
+  @UI.lineItem: [ {
+    position: 140 
+  } ]
+//  @UI.selectionField: [ {
+//    position: 140 
+//  } ]
+  LastChangedAt;
+}

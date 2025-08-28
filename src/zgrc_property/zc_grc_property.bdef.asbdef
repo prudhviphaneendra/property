@@ -1,0 +1,153 @@
+projection implementation in class ZBP_C_GRC_PROPERTY unique;
+strict ( 2 );
+use draft;
+define behavior for ZC_GRC_PROPERTY alias Property
+use etag
+
+{
+  use create;
+  use update;
+  use delete;
+   use association _Recomm {create;}
+   use association _log;
+//   use association _Multi { create; with draft; }
+use association _Wall { create; with draft; }
+use association _Roof { create; with draft; }
+use association _Renov { create; with draft; }
+use association _Alarm { create; with draft; }
+use association _Security { create; with draft; }
+use association _Attachment { create; with draft; }
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+  use action copy;
+}
+
+define behavior for ZC_GRC_PROP_RECM alias Recomm
+use etag
+
+{
+//  use create;
+  use update;
+  use delete;
+  use association _Property { with draft; }
+
+//  use action Edit;
+//  use action Activate;
+//  use action Discard;
+//  use action Resume;
+//  use action Prepare;
+}
+
+define behavior for ZC_GRC_PROP_LOG alias Log
+use etag
+
+{
+//  use create;
+//  use update;
+  use delete;
+  use association _Property { with draft; }
+
+//  use action Edit;
+//  use action Activate;
+//  use action Discard;
+//  use action Resume;
+//  use action Prepare;
+}
+
+define behavior for ZC_GRC_PROP_WALL alias Wall
+use etag
+
+{
+//  use create;
+  use update;
+  use delete;
+  use association _Property { with draft; }
+
+//  use action Edit;
+//  use action Activate;
+//  use action Discard;
+//  use action Resume;
+//  use action Prepare;
+}
+define behavior for ZC_GRC_PROP_ROOF alias Roof
+use etag
+
+{
+//  use create;
+  use update;
+  use delete;
+  use association _Property { with draft; }
+
+//  use action Edit;
+//  use action Activate;
+//  use action Discard;
+//  use action Resume;
+//  use action Prepare;
+}
+define behavior for ZC_GRC_PROP_RENOV alias Renov
+use etag
+
+{
+//  use create;
+  use update;
+  use delete;
+  use association _Property { with draft; }
+
+//  use action Edit;
+//  use action Activate;
+//  use action Discard;
+//  use action Resume;
+//  use action Prepare;
+}
+define behavior for ZC_GRC_PROP_ALM alias Alarm
+use etag
+
+{
+//  use create;
+  use update;
+  use delete;
+  use association _Property { with draft; }
+
+//  use action Edit;
+//  use action Activate;
+//  use action Discard;
+//  use action Resume;
+//  use action Prepare;
+}
+define behavior for ZC_GRC_PROP_SECTY alias Security
+use etag
+
+{
+//  use create;
+  use update;
+  use delete;
+  use association _Property { with draft; }
+
+//  use action Edit;
+//  use action Activate;
+//  use action Discard;
+//  use action Resume;
+//  use action Prepare;
+}
+//define behavior for ZC_GRC_PROP_ATTCH alias Attachment
+define behavior for ZC_GRC_DOC_REPO alias Attachment
+use etag
+
+{
+//  use create;
+  use update;
+  use delete;
+//  below uploadFile added by Abdul Rahiman
+  use action uploadFile;
+  use association _Property { with draft; }
+
+//  use action Edit;
+//  use action Activate;
+//  use action Discard;
+//  use action Resume;
+//  use action Prepare;
+}

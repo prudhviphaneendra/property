@@ -1,0 +1,9 @@
+CLASS zbp_r_grc_prop_recm DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zr_grc_property.
+protected section.
+private section.
+ENDCLASS.
+
+
+
+CLASS ZBP_R_GRC_PROP_RECM IMPLEMENTATION.
+ENDCLASS.

@@ -1,0 +1,810 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'PropertyName'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'PropertyId'
+annotate view ZC_GRC_PROPERTY with
+{
+  @EndUserText.label: 'PropertyNo'
+  @UI.facet: [ 
+  { 
+       purpose : #STANDARD,
+       type: #COLLECTION,
+       position: 10,
+       id: 'super',
+       label: 'Property Information'
+        },
+  { 
+       purpose: #STANDARD,
+       type: #IDENTIFICATION_REFERENCE,
+       label: 'Property Information',
+       position: 10,
+       parentId: 'super'
+//       isPartOfPreview: false
+      },
+      { 
+      purpose: #STANDARD,
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Values',
+      position: 20,
+      parentId: 'super',
+      targetQualifier: 'values' },
+      { 
+      purpose: #STANDARD,
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Address',
+      position: 30,
+      parentId: 'super',
+      targetQualifier: 'address' },
+            { 
+      purpose: #STANDARD,
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Construction',
+      position: 40,
+      parentId: 'super',
+      targetQualifier: 'construction' },
+      { 
+      purpose: #STANDARD,
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Occupancy',
+      position: 50,
+      parentId: 'super',
+      targetQualifier: 'occupancy' },
+      { 
+      purpose: #STANDARD,
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Protection',
+      position: 60,
+      parentId: 'super',
+      targetQualifier: 'protection' },
+      { 
+      purpose: #STANDARD,
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Exposure',
+      position: 70,
+      parentId: 'super',
+      targetQualifier: 'exposure' },
+      { 
+      purpose: #STANDARD,
+      type: #FIELDGROUP_REFERENCE,
+      label: 'System Information',
+      position: 80,
+      parentId: 'super',
+      targetQualifier: 'systinfo' },
+  { 
+    purpose: #STANDARD,
+    type: #LINEITEM_REFERENCE,
+    label: 'Recommendation',
+    position: 100,
+    targetElement: '_Recomm'
+  },
+  { 
+    purpose: #STANDARD,
+    type: #LINEITEM_REFERENCE,
+    label: 'Values History',
+    position: 80,
+    targetElement: '_Log'
+  },
+  {   
+      purpose: #STANDARD,
+      type: #LINEITEM_REFERENCE,
+      label: 'Claim',
+      position: 90,
+      targetElement: '_Claim'  
+  },
+  { 
+    purpose: #STANDARD,
+    type: #LINEITEM_REFERENCE,
+    label: 'Files',
+    position: 110,    
+    targetElement: '_Attachment'
+  } ]
+  
+  
+  
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'PropertyNo'
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    label: 'PropertyNo'
+  },
+   { type: #FOR_ACTION, label: 'Clone',
+    dataAction: 'copy' }  ]
+
+  PropertyNo;
+  
+  @EndUserText.label: 'PropertyId'
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'PropertyId'
+  } ]
+  @UI.lineItem: [ {
+    position: 20 , 
+    label: 'PropertyId'
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  PropertyId;
+  
+  @EndUserText.label: 'Property Name'
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'Property Name'
+  } ]
+
+  @UI.lineItem: [ {
+    position: 30 , 
+    label: 'Property Name'
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  PropertyName;
+  @EndUserText.label: 'Property Status'
+  @UI.identification: [ {
+    position: 40 
+  } ]
+  @UI.lineItem: [ {
+    position: 40 
+  } ]
+  PropertyStatus;
+  @EndUserText.label: 'Property Type'
+  @UI.identification: [ {
+    position: 50 
+  } ]
+
+  PropertyType;
+
+  @EndUserText.label: 'Date Purchased'
+  @UI.identification: [ {
+    position: 60 , 
+    label: 'Date Purchased'
+  } ]
+  @UI.lineItem: [ {
+    position: 60 , 
+    label: 'Date Purchased'
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  DatePurchased;
+  
+
+  
+  @EndUserText.label: 'Insured Name'
+   @Consumption.valueHelpDefinition: [{ entity: { name: 'ZR_LOCATION_LOOKUP', element: 'Location_Name' } }]
+   @Search.defaultSearchElement: true
+//  @Consumption.semanticObject: 'zgrc_location'
+  @UI.identification: [ {
+  type: #WITH_INTENT_BASED_NAVIGATION,
+      semanticObject: 'zgrc_locations',
+      semanticObjectAction: 'get',
+//      semanticObjectBinding: [{localElement: 'LocationUuid', element: 'LocationUuid'}],
+      value: 'InsuredName',
+      label: 'Insured Name',
+      targetElement: 'LocationUuid',
+    position: 70 
+  } ]
+  @UI.lineItem: [ {  
+    position: 70  
+  } ]
+ 
+  InsuredName;
+  
+//  @EndUserText.label: 'Navigate to Location App'
+//  @UI.adaptationHidden: true
+//  @UI.identification: [ {
+//      value: 'LocationUuid',
+//      label: 'Internal Number',
+//    position: 1600 
+//  } ]
+//  LocationUuid;
+
+  @EndUserText.label: 'Property Use'
+  @UI.identification: [ {
+    position: 80 
+  } ]
+  @UI.lineItem: [ {
+    position: 80 
+  } ]
+
+  PropertyUse;
+  
+  @EndUserText.label: 'HFM Code'
+  @UI.identification: [ {
+    position: 90 , 
+    label: 'HFM Code'
+  } ]
+  @UI.lineItem: [ {
+    position: 90 , 
+    label: 'HFM Code'
+  } ]
+
+  HfmCode;
+  @EndUserText.label: 'Ownership'
+  @UI.identification: [ {
+    position: 100 
+  } ]
+  @UI.lineItem: [ {
+    position: 100 
+  } ]
+
+  Ownership;
+  @EndUserText.label: 'Date Sold'
+  @UI.identification: [ {
+    position: 110 , 
+    label: 'Date Sold'
+  } ]
+  @UI.lineItem: [ {
+    position: 110 , 
+    label: 'Date Sold'
+  } ]
+
+  DateSold;
+  @EndUserText.label: 'Occupancy'
+  @UI.identification: [ {
+    position: 120 
+  } ]
+  @UI.lineItem: [ {
+    position: 120 
+  } ]
+
+  Occupancy;
+  
+  @EndUserText.label: 'Brand'
+  @UI.identification: [ {
+    position: 130 , 
+    label: 'Brand'
+  } ]
+  @UI.lineItem: [ {
+    position: 130 , 
+    label: 'Brand'
+  } ]
+
+  Brand;
+  
+  @EndUserText.label: 'Sub Brand'
+  @UI.identification: [ {
+    position: 140 , 
+    label: 'SubBrand'
+  } ]
+  @UI.lineItem: [ {
+    position: 140 , 
+    label: 'SubBrand'
+  } ]
+
+  SubBrand;
+  
+  @EndUserText.label: 'Site Owner Email'
+  @UI.identification: [ {
+    position: 150 , 
+    label: 'Site Owner Email'
+  } ]
+  @UI.lineItem: [ {
+    position: 150 , 
+    label: 'Site Owner Email'
+  } ]
+
+  SiteOwnerEmail;
+  
+  @EndUserText.label: 'Building Value'
+  @UI.fieldGroup: [{ qualifier: 'values', label: 'Building Value', position:10 }]
+  @UI.lineItem: [ {
+    position: 160 , 
+    label: 'Building Value'
+  } ]
+
+  BuildingValue;
+  
+  @EndUserText.label: 'Equipment Value'
+ @UI.fieldGroup: [{ qualifier: 'values', label: 'Equipment Value', position:20 }]
+  @UI.lineItem: [ {
+    position: 170 , 
+    label: 'Equipment Value'
+  } ]
+
+  EquipmentValue;
+  
+  @EndUserText.label: 'Tenants Improvements'
+@UI.fieldGroup: [{ qualifier: 'values', label: 'Tenants Improvements', position:30 }]
+  @UI.lineItem: [ {
+    position: 180 , 
+    label: 'Tenants Improvements'
+  } ]
+
+  TenantsImprovements;
+  
+  @EndUserText.label: 'Business Interruption Value'
+  @UI.fieldGroup: [{ qualifier: 'values', label: 'Business Interption Value', position:40 }]
+  @UI.lineItem: [ {
+    position: 190 , 
+    label: 'BusinessInterptVal'
+  } ]
+
+  BusinessInterptVal;
+  
+  @EndUserText.label: 'Average Cargo Value'
+ @UI.fieldGroup: [{ qualifier: 'values', label: 'Average Cargo Value', position:50 }]
+  @UI.lineItem: [ {
+    position: 200 , 
+    label: 'Avg Cargo Value'
+  } ]
+
+  AvgCargoValue;
+  
+  @EndUserText.label: 'Maximum Cargo Value'
+@UI.fieldGroup: [{ qualifier: 'values', label: 'Maximum Cargo Value', position:60 }]
+  @UI.lineItem: [ {
+    position: 210 , 
+    label: 'Max Cargo Value'
+  } ]
+
+  MaxCargoValue;
+  
+   @EndUserText.label: 'TotalInsuredValue'
+@UI.fieldGroup: [{ qualifier: 'values', label: 'Total Insured Value', position:70 }]
+//  @UI.lineItem: [ {
+//    position: 660 , 
+//    label: 'TotalInsuredValue'
+//  } ]
+  TotalInsuredValue;
+  
+  @EndUserText.label: 'Address Line1'
+ @UI.fieldGroup: [{ qualifier: 'address', label: 'Address Line1', position:10 }]
+  @UI.lineItem: [ {
+    position: 220 , 
+    label: 'Address Line1'
+  } ]
+@UI.multiLineText: true
+  AddressLine1;
+  
+  @EndUserText.label: 'Address Line2'
+@UI.fieldGroup: [{ qualifier: 'address', label: 'Address Line2', position:20 }]
+  @UI.lineItem: [ {
+    position: 230 , 
+    label: 'Address Line2'
+  } ]
+
+  AddressLine2;
+  
+  @EndUserText.label: 'City'
+@UI.fieldGroup: [{ qualifier: 'address', label: 'City', position:30 }]
+  @UI.lineItem: [ {
+    position: 240 , 
+    label: 'City'
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  City;
+  
+@UI.fieldGroup: [{ qualifier: 'address', label: 'State', position:40 }]
+  @UI.lineItem: [ {
+    position: 250 
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  State;
+  
+  @EndUserText.label: 'Zip Code'
+@UI.fieldGroup: [{ qualifier: 'address', label: 'Zip Code', position:50 }]
+  @UI.lineItem: [ {
+    position: 260 , 
+    label: 'Zip Code'
+  } ]
+
+  ZipCode;
+  
+  @EndUserText.label: 'Latitude'
+ @UI.fieldGroup: [{ qualifier: 'address', label: 'Latitude', position:60 }]
+  @UI.lineItem: [ {
+    position: 270 , 
+    label: 'Latitude'
+  } ]
+
+  Latitude;
+  
+  @EndUserText.label: 'Longitude'
+ @UI.fieldGroup: [{ qualifier: 'address', label: 'Longitude', position:70 }]
+  @UI.lineItem: [ {
+    position: 280 , 
+    label: 'Longitude'
+  } ]
+
+  Longitude;
+  
+  @EndUserText.label: 'Region'
+  @UI.fieldGroup: [{ qualifier: 'address', label: 'Region', position:80 }]
+  @UI.lineItem: [ {
+    position: 290 , 
+    label: 'Region'
+  } ]
+  Region;
+  
+ @UI.fieldGroup: [{ qualifier: 'address', label: 'Area', position:90 }]
+  @UI.lineItem: [ {
+    position: 300 
+  } ]
+
+  Area;
+  
+ @UI.fieldGroup: [{ qualifier: 'address', label: 'Country', position:100 }]
+  @UI.lineItem: [ {
+    position: 310 
+  } ]
+
+  Country;
+//  @UI.fieldGroup: [{ qualifier: 'address', label: 'Photo', position:110 }]
+//
+//  @UI.lineItem: [ {
+//    position: 320 
+//  } ]
+//
+//  Photo;
+  @UI.fieldGroup: [{ qualifier: 'construction', value : '_Wall.WallType', label: 'Wall Type', position:10 }]
+ 
+  @UI.lineItem: [ {
+    position: 330 
+  } ]
+
+  _Wall;
+  
+    @UI.fieldGroup: [{ qualifier: 'construction', value : '_Roof.RoofType', label: 'Roof Type', position:10 }]
+ 
+  @UI.lineItem: [ {
+    position: 340 
+  } ]
+
+  _Roof;
+  
+ 
+//  @UI.identification: [{ position: 50,  label: 'WallType'} ]
+////  RoofType;
+//   _Multi ;
+  
+  @EndUserText.label:  'RenewalContact' 
+  @EndUserText.quickInfo: 'Please record using the Maersk UID'
+  
+@UI.fieldGroup: [{ qualifier: 'construction', label: 'Renewal Contact', position:30 }]
+  @UI.lineItem: [ {
+    position: 350 , 
+    label: 'RenewalContact'
+  } ]
+
+  RenewalContact;
+  
+     @UI.fieldGroup: [{ qualifier: 'construction', value : '_Renov.RenovYrs', label: 'Renovation Years', position:90 }]
+ 
+  @UI.lineItem: [ {
+    position: 410 
+  } ]
+
+  _Renov;
+  
+  @EndUserText.label: 'Square Metres'
+@UI.fieldGroup: [{ qualifier: 'construction', label: 'Square Metres', position:50 }]
+  @UI.lineItem: [ {
+    position: 370 , 
+    label: 'SquareMetres'
+  } ]
+
+  SquareMetres;
+  
+  @EndUserText.label: 'Gross Square Metres'
+@UI.fieldGroup: [{ qualifier: 'construction', label: 'Gross Square Metres', position:60 }]
+  @UI.lineItem: [ {
+    position: 380 , 
+    label: 'GrossSquareMetres'
+  } ]
+
+  GrossSquareMetres;
+@UI.fieldGroup: [{ qualifier: 'construction', label: 'Solar Panels', position:70 }]
+  @UI.lineItem: [ {
+    position: 390 
+  } ]
+
+  SolarPanels;
+  
+  @EndUserText.label: 'Building Height'
+@UI.fieldGroup: [{ qualifier: 'construction', label: 'Building Height', position:80 }]
+  @UI.lineItem: [ {
+    position: 400 , 
+    label: 'BuildingHeight'
+  } ]
+
+  BuildingHeight;
+  
+ 
+  
+  @EndUserText.label: 'Levels Above Grade'
+@UI.fieldGroup: [{ qualifier: 'construction', label: 'Levels Above Grade', position:100 }]
+  @UI.lineItem: [ {
+    position: 420 , 
+    label: 'Levels Above Grade'
+  } ]
+
+  LevelsAboveGrade;
+  
+  @EndUserText.label: 'Levels Below Grade'
+@UI.fieldGroup: [{ qualifier: 'construction', label: 'Levels Below Grade', position:110 }]
+  @UI.lineItem: [ {
+    position: 430 , 
+    label: 'Levels Below Grade'
+  } ]
+
+  LevelsBelowGrade;
+  
+  @EndUserText.label: 'Fire Areas'
+@UI.fieldGroup: [{ qualifier: 'construction', label: 'Fire Areas', position:120 }]
+  @UI.lineItem: [ {
+    position: 440 , 
+    label: 'Fire Areas'
+  } ]
+
+  FireAreas;
+  
+  @EndUserText.label: 'Floors Occupied'
+@UI.fieldGroup: [{ qualifier: 'occupancy', label: 'Floors Occupied', position:10 }]
+  @UI.lineItem: [ {
+    position: 450 , 
+    label: 'Floors Occupied'
+  } ]
+
+  FloorsOccupied;
+  
+@UI.fieldGroup: [{ qualifier: 'occupancy', label: 'Floors Occupation', position:20 }]
+  @UI.lineItem: [ {
+    position: 460 
+  } ]
+
+  Occupation;
+  
+  @EndUserText.label: 'AreaOccupied'
+@UI.fieldGroup: [{ qualifier: 'occupancy', label: 'Area Occupied', position:30 }]
+  @UI.lineItem: [ {
+    position: 470 , 
+    label: 'AreaOccupied'
+  } ]
+
+  AreaOccupied;
+  
+@UI.fieldGroup: [{ qualifier: 'protection', label: 'Fire Protect Class', position:30 }]
+  @UI.lineItem: [ {
+    position: 480 
+  } ]
+
+  FireProtectClass;
+  
+@UI.fieldGroup: [{ qualifier: 'protection', label: 'Fire Department Type', position:40 }]
+  @UI.lineItem: [ {
+    position: 490 
+  } ]
+
+  FireDeptType;
+  
+  @EndUserText.label: 'Fire Hydrant Distance'
+@UI.fieldGroup: [{ qualifier: 'protection', label: 'Fire Hydrant Distance', position:50 }]
+  @UI.lineItem: [ {
+    position: 500 , 
+    label: 'Fire Hydrant Distance'
+  } ]
+
+  FireHydrantDistance;
+  
+  @EndUserText.label: 'Tapa Certification'
+@UI.fieldGroup: [{ qualifier: 'protection', label: 'Tapa Certification', position:60 }]
+  @UI.lineItem: [ {
+    position: 510 , 
+    label: 'Tapa Certification'
+  } ]
+
+  TapaCertification;
+  
+  @EndUserText.label: 'Fire Department Location'
+@UI.fieldGroup: [{ qualifier: 'protection', label: 'Fire Department Location', position:70 }]
+  @UI.lineItem: [ {
+    position: 520 , 
+    label: 'Fire Department Location'
+  } ]
+
+  FireDeptLocation;
+  
+  @EndUserText.label: 'Proximity Fire Hydrants'
+@UI.fieldGroup: [{ qualifier: 'protection', label: 'Proximity Fire Hydrants', position:80 }]
+  @UI.lineItem: [ {
+    position: 530 , 
+    label: 'Proximity Fire Hydrants'
+  } ]
+
+  ProximityFireHyd;
+  
+@UI.fieldGroup: [{ qualifier: 'protection', label: 'Sprinklers', position:90 }]
+  @UI.lineItem: [ {
+    position: 540 
+  } ]
+
+  Sprinklers;
+  
+//@UI.fieldGroup: [{ qualifier: 'protection', label: 'Security', position:100 }]
+//  @UI.lineItem: [ {
+//    position: 550 
+//  } ]
+//
+//  Security;
+    @UI.fieldGroup: [{ qualifier: 'protection', value : '_Security.Security', label: 'Security', position:100 }]
+ 
+  @UI.lineItem: [ {
+    position: 550 
+  } ]
+
+  _Security;
+  
+
+    @UI.fieldGroup: [{ qualifier: 'construction', value : '_Alarm.Alarms', label: 'Alarm', position:110 }]
+ 
+  @UI.lineItem: [ {
+    position: 560 
+  } ]
+
+  _Alarm;
+
+  
+@UI.fieldGroup: [{ qualifier: 'exposure', label: 'Property Zoning', position:10 }]
+  @UI.lineItem: [ {
+    position: 570 
+  } ]
+
+  PropertyZoning;
+  
+@UI.fieldGroup: [{ qualifier: 'exposure', label: 'Coastal Distance', position:20 }]
+  @UI.lineItem: [ {
+    position: 580 
+  } ]
+
+  CoastalDistance;
+  
+//  @EndUserText.label: 'Elevation'
+//@UI.fieldGroup: [{ qualifier: 'exposure', label: 'Elevation', position:30 }]
+//  @UI.lineItem: [ {
+//    position: 580 , 
+//    label: 'Elevation'
+//  } ]
+//
+//  Elevation;
+ @UI.fieldGroup: [{ qualifier: 'exposure', label: 'Flood Zone', position:40 }]
+  @UI.lineItem: [ {
+    position: 590 
+  } ]
+
+  FloodZone;
+  
+ @UI.fieldGroup: [{ qualifier: 'exposure', label: 'Earthquake Zone', position:50 }]
+  @UI.lineItem: [ {
+    position: 600 
+  } ]
+
+  EarthquakeZone;
+  
+ @UI.fieldGroup: [{ qualifier: 'exposure', label: 'Wind Storm Zone', position:60 }]
+  @UI.lineItem: [ {
+    position: 610 
+  } ]
+
+  WindStormZone;
+  
+ @UI.fieldGroup: [{ qualifier: 'systinfo', label: 'Owner', position:10 }]
+  @UI.lineItem: [ {
+    position: 620 
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  Owner;
+  
+  @EndUserText.label: 'SicCode'
+ 
+  @UI.lineItem: [ {
+    position: 630 , 
+    label: 'SicCode'
+  } ]
+
+  SicCode;
+  
+  @EndUserText.label: 'Skip Property Validation'
+
+  @UI.lineItem: [ {
+    position: 640 , 
+    label: 'Skip Property Validation'
+  } ]
+
+  SkipPropertyValidation;
+  
+  @EndUserText.label: 'Values Collection Email'
+
+  @UI.lineItem: [ {
+    position: 650 , 
+    label: 'Values Collection Email'
+  } ]
+
+  ValuesCollectionEmail;
+  
+//  @EndUserText.label: 'TotalInsuredValue'
+//
+//  @UI.lineItem: [ {
+//    position: 660 , 
+//    label: 'TotalInsuredValue'
+//  } ]
+//  TotalInsuredValue;
+  
+  @EndUserText.label: 'ConstructionYear'
+ 
+  @UI.lineItem: [ {
+    position: 670 , 
+    label: 'ConstructionYear'
+  } ]
+
+  ConstructionYear;
+  
+  @EndUserText.label: 'Insurance Obgligation'
+
+  @UI.lineItem: [ {
+    position: 680 , 
+    label: 'Insurance Obgligation'
+  } ]
+
+  InsuranceObgligation;
+  
+ 
+  @UI.lineItem: [ {
+    position: 690 
+  } ]
+
+  Location;
+  
+ 
+  @UI.lineItem: [ {
+    position: 700 
+  } ]
+
+  Archetype;
+  
+ @UI.fieldGroup: [{ qualifier: 'systinfo', label: 'Created By', position:20 }]
+  @UI.lineItem: [ {
+    position: 710 
+  } ]
+
+  Createdby;
+  
+ @UI.fieldGroup: [{ qualifier: 'systinfo', label: 'Created On', position:30 }]
+  @UI.lineItem: [ {
+    position: 720 
+  } ]
+
+  Createdat;
+  
+ @UI.fieldGroup: [{ qualifier: 'systinfo', label: 'Changed By', position:40 }]
+  @UI.lineItem: [ {
+    position: 730 
+  } ]
+
+  Lastchangedby;
+  
+  @UI.fieldGroup: [{ qualifier: 'systinfo', label: 'Changed On', position:40 }]
+  @UI.lineItem: [ {
+    position: 740 
+  } ]
+  Lastchangedat;
+  
+    @EndUserText.label: 'Navigate to Location App'
+  @UI.adaptationHidden: true
+   @UI.fieldGroup: [{ qualifier: 'systinfo',
+      value: 'LocationUuid',
+      label: 'Internal Number',
+    position: 750 
+  } ]
+  LocationUuid;
+}

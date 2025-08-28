@@ -1,0 +1,42 @@
+@Metadata.layer: #CORE
+annotate entity ZC_GRC_PROP_ATTCH
+    with 
+{
+    @UI.facet: [
+                { 
+                    purpose: #STANDARD,
+                    type: #IDENTIFICATION_REFERENCE,
+                    label: 'Attachment Info',
+                    position: 10
+                    
+                 }
+                
+    ]
+    @UI.lineItem: [{ position: 10 }]
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'Upload File',
+    type: #FOR_ACTION, 
+    dataAction: 'uploadFile'    
+  } ]    
+//    @UI.identification: [{ position: 10 }]
+    ParentGuid;
+    @UI.lineItem: [{ position: 20 }]
+    @UI.identification: [{ position: 20 }]
+    Guid;
+     @UI.lineItem: [{ position: 30 }]
+    @UI.identification: [{ position: 30 }]
+    Description;
+    @UI.lineItem: [{ position: 40 }]
+    @UI.identification: [{ position: 40 }]
+    Attachment;
+    @UI.hidden: true
+    FileName;
+    @UI.hidden: true
+    FileType;
+    @UI.identification: [{ position: 50 }]
+    CreatedBy;
+    @UI.identification: [{ position: 60 }]
+    CreationAt;
+    
+}

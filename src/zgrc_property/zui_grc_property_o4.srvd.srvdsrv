@@ -1,0 +1,19 @@
+@EndUserText.label: 'Service Definition ZC_GRC_PROPERTY_V4'
+define service ZUI_GRC_PROPERTY_O4 {
+  expose ZC_GRC_PROPERTY;
+  expose ZC_GRC_PROP_RECM;
+  expose ZC_GRC_PROP_LOG;
+  expose ZR_GRC_PROPERTY;
+  expose ZR_GRC_PROP_RECM;
+  expose ZR_GRC_PROP_LOG;
+  expose ZR_GRC_PROP_ALM;
+  expose ZC_GRC_PROP_WALL;
+  expose ZC_GRC_PROP_ROOF;
+  expose ZC_GRC_PROP_ALM;
+  expose ZC_GRC_PROP_SECTY;
+  expose ZC_GRC_PROP_RENOV;
+  expose ZR_GRC_PROPERTY_CLAIM;
+  expose ZR_GRC_PROP_USE_PL;
+  expose ZR_GRC_DOC_REPO;
+  expose ZC_GRC_DOC_REPO;
+}

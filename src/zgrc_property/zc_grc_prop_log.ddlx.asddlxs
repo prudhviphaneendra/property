@@ -1,0 +1,100 @@
+@Metadata.layer: #CORE
+annotate entity ZC_GRC_PROP_LOG
+    with 
+{
+    @EndUserText.label: 'PropertyNo'
+  @UI.facet: [ {
+    label: 'General Information', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  } ]
+  
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'ValueDate'
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    label: 'Value Date'
+  } ]
+ ValueDate;
+  
+  @EndUserText.label: 'Building Value'
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'Building Value'
+  } ]
+  @UI.lineItem: [ {
+    position: 20 , 
+    label: 'Building Value'
+  } ]
+  BuildingValue;
+  
+  @EndUserText.label: 'Equipment Value'
+  @UI.identification: [ {
+    position: 30 
+  } ]
+  @UI.lineItem: [ {
+    position: 30 
+  } ]
+ EquipmentValue;
+ 
+   @EndUserText.label: 'Tenants Improvement'
+  @UI.identification: [ {
+    position: 40 
+  } ]
+  @UI.lineItem: [ {
+    position: 40 
+  } ]
+ TenantsImprovements;
+   @EndUserText.label: 'Business Interruption
+Value (Revenue)
+'
+  @UI.identification: [ {
+    position: 50 
+  } ]
+  @UI.lineItem: [ {
+    position: 50 
+  } ]
+ BusinessInterptVal;
+  
+   @EndUserText.label: 'Average Cargo Value'
+  @UI.identification: [ {
+    position: 60 
+  } ]
+  @UI.lineItem: [ {
+    position: 60 
+  } ]
+ AvgCargoValue;
+ 
+    @EndUserText.label: 'Maximum Cargo Value'
+  @UI.identification: [ {
+    position: 70 
+  } ]
+  @UI.lineItem: [ {
+    position: 70 
+  } ]
+ MaxCargoValue;
+ 
+   @EndUserText.label: 'Changed By'
+    @UI.identification: [ {
+    position: 80 
+  } ]
+  @UI.lineItem: [ {
+    position: 80 
+  } ]
+ Lastchangedby;
+ 
+ @EndUserText.label: 'Changed On'
+  @UI.identification: [ {
+    position: 90 
+  } ]
+  @UI.lineItem: [ {
+    position: 90 
+  } ]
+ LastChangedat;
+
+
+}

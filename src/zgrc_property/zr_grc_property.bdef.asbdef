@@ -1,0 +1,528 @@
+managed implementation in class ZBP_R_GRC_PROPERTY unique;
+strict ( 2 );
+with draft;
+//added by PPT020
+define own authorization context
+{
+  'Z_PROP_O';
+}
+//ADDEDBY PPT020
+define behavior for ZR_GRC_PROPERTY alias ZrGrcProperty
+persistent table ztgrc_property
+with additional save
+draft table ztgrc_prprty_d
+etag master Lastchangedat
+lock master total etag Lastchangedat
+//lock master
+authorization master ( global )
+
+{
+  field ( readonly )
+  PropertyNo,
+  PropertyName,
+  TotalInsuredValue,
+  Createdby,
+  Createdat,
+  Lastchangedby,
+  Lastchangedat;
+
+  field ( numbering : managed )
+  PropertyNo;
+
+  field ( mandatory )
+  PropertyId,
+  PropertyStatus,
+  DatePurchased,
+  PropertyType,
+  InsuredName,
+  Ownership,
+  AddressLine1,
+  City,
+  Country;
+
+
+  create;
+  update;
+  delete;
+  association _Recomm { create; with draft; }
+  association _Log;
+  //   association _Multi { create; with draft; }
+  association _Wall { create; with draft; }
+  association _Roof { create; with draft; }
+  association _Security { create; with draft; }
+  association _Alarm { create; with draft; }
+  association _Renov { create; with draft; }
+  association _Attachment { create; with draft; }
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+  determination totalinsuredval on save
+  { field BuildingValue, EquipmentValue, TenantsImprovements,
+    BusinessInterptVal; }
+  determination propertyname on save { field InsuredName; }
+  side effects { field BuildingValue affects field _Log.PropLogNo; }
+  validation valPropertyid on save { field PropertyId; create; update; }
+  validation valPropertystatus on save { field PropertyStatus; create; update; }
+  validation valDatePurchased on save { field DatePurchased; create; update; }
+  //   validation valdatesold on save { field DateSold; create; update; }
+  factory action copy [1];
+
+
+  mapping for ztgrc_property
+    {
+      PropertyNo             = property_no;
+      PropertyId             = property_id;
+      PropertyName           = property_name;
+      PropertyStatus         = property_status;
+      PropertyType           = property_type;
+      DatePurchased          = date_purchased;
+      InsuredName            = insured_name;
+      PropertyUse            = property_use;
+      HfmCode                = hfm_code;
+      Ownership              = ownership;
+      DateSold               = date_sold;
+      Occupancy              = occupancy;
+      Brand                  = brand;
+      SubBrand               = sub_brand;
+      SiteOwnerEmail         = site_owner_email;
+      BuildingValue          = building_value;
+      EquipmentValue         = equipment_value;
+      TenantsImprovements    = tenants_improvements;
+      BusinessInterptVal     = business_interpt_val;
+      AvgCargoValue          = avg_cargo_value;
+      MaxCargoValue          = max_cargo_value;
+      AddressLine1           = address_line1;
+      AddressLine2           = address_line2;
+      City                   = city;
+      State                  = state;
+      ZipCode                = zip_code;
+      Latitude               = latitude;
+      Longitude              = longitude;
+      Region                 = region;
+      Area                   = area;
+      Country                = country;
+      RenewalContact         = renewal_contact;
+      SquareMetres           = square_metres;
+      GrossSquareMetres      = gross_square_metres;
+      SolarPanels            = solar_panels;
+      BuildingHeight         = building_height;
+      LevelsAboveGrade       = levels_above_grade;
+      LevelsBelowGrade       = levels_below_grade;
+      FireAreas              = fire_areas;
+      FloorsOccupied         = floors_occupied;
+      Occupation             = occupation;
+      AreaOccupied           = area_occupied;
+      FireProtectClass       = fire_protect_class;
+      FireDeptType           = fire_dept_type;
+      FireHydrantDistance    = fire_hydrant_distance;
+      TapaCertification      = tapa_certification;
+      FireDeptLocation       = fire_dept_location;
+      ProximityFireHyd       = proximity_fire_hyd;
+      Sprinklers             = sprinklers;
+      PropertyZoning         = property_zoning;
+      CoastalDistance        = coastal_distance;
+      Elevation              = elevation;
+      FloodZone              = flood_zone;
+      EarthquakeZone         = earthquake_zone;
+      WindStormZone          = wind_storm_zone;
+      Owner                  = owner;
+      SicCode                = sic_code;
+      SkipPropertyValidation = skip_property_validation;
+      ValuesCollectionEmail  = values_collection_email;
+      TotalInsuredValue      = total_insured_value;
+      ConstructionYear       = construction_year;
+      InsuranceObgligation   = insurance_obgligation;
+      Location               = location;
+      Archetype              = archetype;
+      Createdby              = createdby;
+      Createdat              = createdat;
+      Lastchangedby          = lastchangedby;
+      Lastchangedat          = lastchangedat;
+    }
+}
+define behavior for ZR_GRC_PROP_RECM alias ZrGrcPropRecm
+implementation in class ZBP_R_GRC_PROP_RECM unique
+persistent table ztgrc_prop_recm
+draft table ztgrc_prp_recm_d
+etag master Lastchangedat
+//lock master total etag Lastchangedat
+lock dependent by _Property
+authorization dependent by _Property
+//authorization master( global )
+
+{
+  field ( readonly )
+  PropertyNo,
+  RecommendNo,
+  Createdby,
+  Createdat,
+  Lastchangedby,
+  Lastchangedat;
+
+  field ( numbering : managed )
+  //   PropertyNo,
+  RecommendNo;
+
+
+  //  create;
+  update;
+  delete;
+  association _Property { with draft; }
+
+  //  draft action Activate optimized;
+  //  draft action Discard;
+  //  draft action Edit;
+  //  draft action Resume;
+  //  draft determine action Prepare;
+
+  mapping for ztgrc_prop_recm
+    {
+      PropertyNo         = property_no;
+      RecommendNo        = recommend_no;
+      PropertyName       = property_name;
+      RecommendationName = recommendation_name;
+      InspectResult      = inspect_result;
+      RecommType         = recomm_type;
+      RecommReportDt     = recomm_report_dt;
+      RecommStatus       = recomm_status;
+      RecommCloseDt      = recomm_close_dt;
+      InspectType        = inspect_type;
+      OutAgencyName      = out_agency_name;
+      Survey             = survey;
+      RecommDesc         = recomm_desc;
+      ActionTaken        = action_taken;
+      Createdby          = createdby;
+      Createdat          = createdat;
+      Lastchangedby      = lastchangedby;
+      Lastchangedat      = lastchangedat;
+    }
+}
+define behavior for ZR_GRC_PROP_LOG alias ZrGrcPropLog
+implementation in class ZBP_R_GRC_PROP_LOG unique
+persistent table ztgrc_prop_log
+draft table ztgrc_prp_log_d
+etag master Lastchangedat
+//lock master total etag Lastchangedat
+lock dependent by _Property
+authorization dependent by _Property
+//authorization master( global )
+
+{
+  field ( readonly )
+  PropertyNo,
+  PropLogNo;
+
+
+  field ( numbering : managed )
+  //   PropertyNo,
+  PropLogNo;
+
+
+  //  create;
+  update;
+  delete;
+  association _Property { with draft; }
+
+  //  draft action Activate optimized;
+  //  draft action Discard;
+  //  draft action Edit;
+  //  draft action Resume;
+  //  draft determine action Prepare;
+
+  mapping for ztgrc_prop_log
+    {
+      PropertyNo         = property_no;
+      PropLogNo          = prop_log_no;
+      BuildingValue      = building_val;
+      EquipmentValue     = equipment_val;
+      MaxCargoValue      = max_cargo_value;
+      BusinessInterptVal = business_interpt_val;
+      ChangeDate         = change_date;
+      AvgCargoValue      = avg_cargo_value;
+    }
+}
+
+define behavior for ZR_GRC_PROP_WALL alias Wall
+implementation in class ZBP_R_GRC_WLTYP unique
+persistent table ztgrc_prop_wall
+draft table ztgrc_prp_wal_d
+etag master Lastchangedat
+//lock master total etag Lastchangedat
+lock dependent by _Property
+authorization dependent by _Property
+//authorization master( global )
+
+{
+
+
+  field ( readonly )
+  Guid;
+  //  field ( numbering : managed )
+  //   PropertyNo,
+
+
+
+  //  create;
+  update;
+  delete;
+  association _Property { with draft; }
+
+
+  mapping for ztgrc_prop_wall
+    {
+      Guid          = guid;
+      WallType      = wall_type;
+      Createdby     = createdby;
+      Createdat     = createdat;
+      Lastchangedby = lastchangedby;
+      Lastchangedat = lastchangedat;
+    }
+}
+define behavior for ZR_GRC_PROP_ROOF alias Roof
+implementation in class ZBP_R_GRC_RFTYP unique
+persistent table ztgrc_prop_roof
+draft table ztgrc_prp_roof_d
+etag master Lastchangedat
+//lock master total etag Lastchangedat
+lock dependent by _Property
+authorization dependent by _Property
+//authorization master( global )
+
+{
+
+
+  field ( readonly )
+  Guid;
+  //  field ( numbering : managed )
+  //   PropertyNo,
+
+
+
+  //  create;
+  update;
+  delete;
+  association _Property { with draft; }
+
+
+  mapping for ztgrc_prop_roof
+    {
+      Guid     = guid;
+      RoofType = roof_type;
+    }
+}
+define behavior for ZR_GRC_PROP_RENOV alias Renov
+implementation in class ZBP_R_GRC_RNYRS unique
+persistent table ztgrc_prop_renov
+draft table ztgrc_prp_renv_d
+etag master Lastchangedat
+//lock master total etag Lastchangedat
+lock dependent by _Property
+authorization dependent by _Property
+//authorization master( global )
+
+{
+
+
+  field ( readonly )
+  Guid;
+  //  field ( numbering : managed )
+  //   PropertyNo,
+
+
+
+  //  create;
+  update;
+  delete;
+  association _Property { with draft; }
+
+
+  mapping for ztgrc_prop_renov
+    {
+      Guid     = guid;
+      RenovYrs = renov_yrs;
+    }
+}
+define behavior for ZR_GRC_PROP_SECTY alias Securtiy
+implementation in class ZBP_R_GRC_SECTY unique
+persistent table ztgrc_prop_secty
+draft table ztgrc_prp_scty_d
+etag master Lastchangedat
+//lock master total etag Lastchangedat
+lock dependent by _Property
+authorization dependent by _Property
+//authorization master( global )
+
+{
+
+
+  field ( readonly )
+  Guid;
+  //  field ( numbering : managed )
+  //   PropertyNo,
+
+
+
+  //  create;
+  update;
+  delete;
+  association _Property { with draft; }
+
+
+  mapping for ztgrc_prop_secty
+    {
+      Guid     = guid;
+      Security = security;
+    }
+}
+define behavior for ZR_GRC_PROP_ALM alias Alarm
+implementation in class ZBP_R_GRC_alm unique
+persistent table ztgrc_prop_alm
+draft table ztgrc_prp_alm_d
+etag master Lastchangedat
+//lock master total etag Lastchangedat
+lock dependent by _Property
+authorization dependent by _Property
+//authorization master( global )
+
+{
+
+
+  field ( readonly )
+  Guid;
+  //  field ( numbering : managed )
+  //   PropertyNo,
+
+
+
+  //  create;
+  update;
+  delete;
+  association _Property { with draft; }
+
+
+  mapping for ztgrc_prop_alm
+    {
+      Guid    = guid;
+      Alarms  = alarms;
+    }
+}
+
+
+
+define behavior for ZR_GRC_DOC_REPO alias Attachment
+//implementation in class ZBP_R_GRC_ATTCH unique
+implementation in class ZBP_R_GRC_DOC_REP unique
+
+// persistent table ztgrc_attach
+//draft table ztgrc_DOC_REP_D
+draft table ztgrc_dc_rp000_d
+with unmanaged save
+etag master Lastchangedat
+//lock master total etag Lastchangedat
+lock dependent by _Property
+authorization dependent by _Property
+//authorization master( global )
+
+{
+
+
+  field ( readonly )
+  Uuid,
+  DocUuid,
+  DocType,
+  Counter,
+  ExternalDocNum;
+//  LocalCreatedBy,
+//  LocalCreatedAt,
+//  LocalLastChangedBy,
+//  LocalLastChangedAt;
+
+
+    field ( numbering : managed )
+     DocUuid;
+
+
+
+  //  create;
+  update;
+  delete;
+  action uploadFile result [1] $self;
+  action downloadFile result [1] $self;
+  association _Property
+  { with draft;
+
+  }
+
+
+  mapping for ztgrc_doc_rep
+    {
+      Uuid               = uuid;
+      DocUuid            = doc_uuid;
+      DocType            = doc_type;
+      ExternalDocNum     = external_doc_num;
+      Counter            = counter;
+      Attachment         = attachment;
+      Mimetype           = mimetype;
+      Filename           = filename;
+      FolderId           = folder_id;
+      FileDocid          = file_docid;
+      LocalCreatedBy     = local_created_by;
+      LocalCreatedAt     = local_created_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+    }
+}
+
+//define behavior for ZR_GRC_PROP_ATTCH alias Attachment
+//implementation in class ZBP_R_GRC_ATTCH unique
+//persistent table ztgrc_attach
+//draft table ztgrc_attach_d
+//etag master Lastchangedat
+////lock master total etag Lastchangedat
+//lock dependent by _Property
+//authorization dependent by _Property
+////authorization master( global )
+//
+//{
+//
+//
+//  field ( readonly )
+//   parentguid,
+//   guid,
+//   CreatedBy,
+//   CreationAt,
+//   LastChangedBy,
+//   LastChangedAt;
+//
+//
+//  field ( numbering : managed )
+////   PropertyNo,
+//   guid;
+//
+//
+//
+////  create;
+//  update;
+//  delete;
+//  association _Property{ with draft; }
+//
+//
+//  mapping for ZTGRC_ATTACH
+//  {
+//    ParentGuid = parent_guid;
+//    Guid = guid;
+//    Description = description;
+//    Attachment = attachment;
+//    FileName = file_name;
+//    FileType = file_type;
+//    CreatedBy = created_by;
+//    CreationAt = creation_at;
+//    LastChangedBy = last_changed_by;
+//    LastChangedAt = last_changed_at;
+//
+//
+//  }
+//}

@@ -1,0 +1,5 @@
+CLASS zbp_r_grc_doc_rep DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zr_grc_property.
+ENDCLASS.
+
+CLASS zbp_r_grc_doc_rep IMPLEMENTATION.
+ENDCLASS.

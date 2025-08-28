@@ -1,0 +1,251 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'PropertyNo'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'PropertyNo'
+annotate view ZC_GRC_PROP_RECM with
+{
+  @EndUserText.label: 'PropertyNo'
+  @UI.facet: [ {
+    label: 'General Information', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  } ]
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'PropertyNo'
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    label: 'PropertyNo'
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  PropertyNo;
+  
+  @EndUserText.label: 'Recommend No'
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'RecommendNo'
+  } ]
+  @UI.lineItem: [ {
+    position: 20 , 
+    label: 'RecommendNo'
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  RecommendNo;
+  
+  @EndUserText.label: 'PropertyName'
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'PropertyName'
+  } ]
+  @UI.lineItem: [ {
+    position: 30 , 
+    label: 'PropertyName'
+  } ]
+  @UI.selectionField: [ {
+    position: 30 
+  } ]
+  PropertyName;
+  
+  @EndUserText.label: 'RecommendationName'
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'RecommendationName'
+  } ]
+  @UI.lineItem: [ {
+    position: 40 , 
+    label: 'RecommendationName'
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  RecommendationName;
+  
+  @UI.identification: [ {
+    position: 50 ,
+    label: 'Inspection Result'
+  } ]
+  @UI.lineItem: [ {
+    position: 50 ,
+    label: 'Inspection Result'
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+  InspectResult;
+  
+  @UI.identification: [ {
+    position: 60 ,
+    label: 'Recommendation Type'
+  } ]
+  @UI.lineItem: [ {
+    position: 60,
+     label: 'Recommendation Type' 
+  } ]
+  @UI.selectionField: [ {
+    position: 60 
+  } ]
+  RecommType;
+  
+  @EndUserText.label: 'RecommReportDt'
+  @UI.identification: [ {
+    position: 70 , 
+    label: 'RecommReportDt'
+  } ]
+  @UI.lineItem: [ {
+    position: 70 , 
+    label: 'RecommReportDt'
+  } ]
+  @UI.selectionField: [ {
+    position: 70 
+  } ]
+  RecommReportDt;
+  
+  @UI.identification: [ {
+    position: 80,
+     label: 'Recommendation Status' 
+  } ]
+  @UI.lineItem: [ {
+    position: 80,
+     label: 'Recommendation Status' 
+  } ]
+  @UI.selectionField: [ {
+    position: 80 
+  } ]
+  RecommStatus;
+  
+  @EndUserText.label: 'RecommCloseDt'
+  @UI.identification: [ {
+    position: 90 , 
+    label: 'RecommCloseDt'
+  } ]
+  @UI.lineItem: [ {
+    position: 90 , 
+    label: 'RecommCloseDt'
+  } ]
+  @UI.selectionField: [ {
+    position: 90 
+  } ]
+  RecommCloseDt;
+  
+  @UI.identification: [ {
+    position: 100,
+     label: 'Inspection Type' 
+  } ]
+  @UI.lineItem: [ {
+    position: 100,
+   label: 'Inspection Type'  
+  } ]
+  @UI.selectionField: [ {
+    position: 100 
+  } ]
+  InspectType;
+  
+  @EndUserText.label: 'OutAgencyName'
+  @UI.identification: [ {
+    position: 110 , 
+    label: 'OutAgencyName'
+  } ]
+  @UI.lineItem: [ {
+    position: 110 , 
+    label: 'OutAgencyName'
+  } ]
+  @UI.selectionField: [ {
+    position: 110 
+  } ]
+  OutAgencyName;
+  
+  
+  @EndUserText.label: 'Survey'
+  @UI.identification: [ {
+    position: 120 , 
+    label: 'Survey'
+  } ]
+  @UI.lineItem: [ {
+    position: 120 , 
+    label: 'Survey'
+  } ]
+  @UI.selectionField: [ {
+    position: 120 
+  } ]
+  Survey;
+  
+  @UI.identification: [ {
+    position: 130,
+    label: 'Recommendation Description' 
+  } ]
+  @UI.lineItem: [ {
+    position: 130,
+    label: 'Recommendation Description' 
+  } ]
+  @UI.selectionField: [ {
+    position: 130 
+  } ]
+  @UI.multiLineText: true
+  RecommDesc;
+  
+  @UI.identification: [ {
+    position: 140,
+    label: 'Action Taken' 
+  } ]
+  @UI.lineItem: [ {
+    position: 140,
+    label: 'Action Taken' 
+  } ]
+  @UI.selectionField: [ {
+    position: 140 
+  } ]
+  @UI.multiLineText: true
+  ActionTaken;
+  
+  @UI.identification: [ {
+    position: 150 
+  } ]
+  @UI.lineItem: [ {
+    position: 150 
+  } ]
+  @UI.selectionField: [ {
+    position: 150 
+  } ]
+  Createdby;
+  
+  @UI.identification: [ {
+    position: 160 
+  } ]
+  @UI.lineItem: [ {
+    position: 160 
+  } ]
+  @UI.selectionField: [ {
+    position: 160 
+  } ]
+  Createdat;
+  
+  @UI.identification: [ {
+    position: 170 
+  } ]
+  @UI.lineItem: [ {
+    position: 170 
+  } ]
+  @UI.selectionField: [ {
+    position: 170 
+  } ]
+  Lastchangedby;
+  
+  @UI.identification: [ {
+    position: 180 
+  } ]
+  @UI.lineItem: [ {
+    position: 180 
+  } ]
+  @UI.selectionField: [ {
+    position: 180 
+  } ]
+  Lastchangedat;
+}

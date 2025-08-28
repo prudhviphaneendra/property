@@ -1,0 +1,9 @@
+CLASS zbp_r_grc_attch DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zr_grc_property.
+protected section.
+private section.
+ENDCLASS.
+
+
+
+CLASS ZBP_R_GRC_ATTCH IMPLEMENTATION.
+ENDCLASS.

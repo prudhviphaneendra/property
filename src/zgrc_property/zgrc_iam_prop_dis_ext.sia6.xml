@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SIA6" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <SIA6>
+    <MAIN_OBJECT>
+     <NAME>ZGRC_IAM_PROP_DIS_EXT</NAME>
+     <TYPE>SIA6</TYPE>
+     <DESCRIPTION>IAM App For Property Display</DESCRIPTION>
+     <RESPONSIBLE>CB9980000021</RESPONSIBLE>
+     <MASTER_LANGUAGE>EN</MASTER_LANGUAGE>
+     <MASTER_SYSTEM>CR1</MASTER_SYSTEM>
+     <PACKAGE_REF>
+      <PACKAGE_NAME>ZGRC_PROPERTY</PACKAGE_NAME>
+     </PACKAGE_REF>
+     <ABAP_LANGU_VERSION>5</ABAP_LANGU_VERSION>
+    </MAIN_OBJECT>
+    <APP_ID>ZGRC_IAM_PROP_DIS_EXT</APP_ID>
+    <APP_TYPE>EXT</APP_TYPE>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+    <SERVICE>
+     <item>
+      <REL_NAME>ZUI_GRC_PROPERTY_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZGRC_IAM_PROP_DIS_EXT</APP_ID>
+      <SRVC_NAME>D4627C33E6F5815464D64298A6B577</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Service Binding Odata V4 for ZUI_GRC_PROPERTY_O4</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+    </SERVICE>
+    <AUTH>
+     <item>
+      <AUTH_OBJECT>Z_PROP_O</AUTH_OBJECT>
+      <STATUS>G</STATUS>
+      <TEXT>AuthObject for Property APP</TEXT>
+      <AUTH_ITEM>
+       <item>
+        <UUID>8rm0KJOoH9CegSLy0GI1pg==</UUID>
+        <AUTH_OBJECT>Z_PROP_O</AUTH_OBJECT>
+        <AUTH_OBJECT_INSTANCE>0001</AUTH_OBJECT_INSTANCE>
+        <IBS_SOURCE>D4627C33E6F5815464D64298A6B577</IBS_SOURCE>
+        <IBS_SOURCE_TYPE>HT</IBS_SOURCE_TYPE>
+        <TEXT>AuthObject for Property APP</TEXT>
+        <STATUS>G</STATUS>
+        <VALUES>
+         <item>
+          <FIELD>ACTVT</FIELD>
+          <VALUE>Display</VALUE>
+          <VALUES>
+           <item>
+            <UUID>8rm0KJOoH9CegSLy0GJVpg==</UUID>
+            <LOW_VALUE>03</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Activity</TEXT>
+          <STATUS>G</STATUS>
+          <IS_ACTVT>X</IS_ACTVT>
+         </item>
+        </VALUES>
+       </item>
+       <item>
+        <UUID>8rm0KJOoH9CegSLy0GJ1pg==</UUID>
+        <AUTH_OBJECT>Z_PROP_O</AUTH_OBJECT>
+        <AUTH_OBJECT_INSTANCE>0002</AUTH_OBJECT_INSTANCE>
+        <IBS_SOURCE>D4627C33E6F5815464D64298A6B577</IBS_SOURCE>
+        <IBS_SOURCE_TYPE>HT</IBS_SOURCE_TYPE>
+        <TEXT>AuthObject for Property APP</TEXT>
+        <STATUS>S</STATUS>
+        <INACTIVE>X</INACTIVE>
+        <VALUES>
+         <item>
+          <FIELD>ACTVT</FIELD>
+          <VALUES>
+           <item>
+            <UUID>8rm0KJOoH9CegSLy0GKVpg==</UUID>
+           </item>
+          </VALUES>
+          <TEXT>Activity</TEXT>
+          <STATUS>S</STATUS>
+          <IS_ACTVT>X</IS_ACTVT>
+         </item>
+        </VALUES>
+       </item>
+      </AUTH_ITEM>
+     </item>
+    </AUTH>
+    <PUBLISH_STATUS>p</PUBLISH_STATUS>
+   </SIA6>
+  </asx:values>
+ </asx:abap>
+</abapGit>
